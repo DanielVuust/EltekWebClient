@@ -1,0 +1,33 @@
+{
+  "locale": "en",
+  "translations": {
+    "2454050363478003966": "Login",
+    "4768749765465246664": "Email",
+    "1431416938026210429": "Password",
+    "940363642664068106": "Don't have an account? {$START_LINK}Register{$CLOSE_LINK}",
+    "3301086086650990787": "Register",
+    "2262780888793695333": "Already have an account? {$START_LINK}Login here{$CLOSE_LINK}",
+    "792930787826735850": "Your profile",
+    "5248717555542428023": "Username",
+    "3768927257183755959": "Save",
+    "4657996646604353962": "Are you sure that you want to delete this task",
+    "2159130950882492111": "Cancel",
+    "7022070615528435141": "Delete",
+    "1731949693670845754": "{$START_TAG_MAT_ICON}add{$CLOSE_TAG_MAT_ICON} Create Task ",
+    "8943809789852542704": "{$START_TAG_MAT_ICON}open_in_new{$CLOSE_TAG_MAT_ICON} open ",
+    "5050307465636924350": "{$START_TAG_MAT_ICON}delete{$CLOSE_TAG_MAT_ICON} Delete ",
+    "3807699453257291879": "Comments",
+    "2662644497259948010": "Comment",
+    "953728965925448662": "{$START_TAG_MAT_ICON}attach_file{$CLOSE_TAG_MAT_ICON} Upload Photos ",
+    "922482600342048186": "Edit Task",
+    "5701618810648052610": "Title",
+    "4902817035128594900": "Description",
+    "471816275243265264": "Location",
+    "7448283842723916598": "{$START_TAG_MAT_ICON} save {$CLOSE_TAG_MAT_ICON} Save ",
+    "1397087741219911768": "{$START_TAG_MAT_ICON} arrow_back {$CLOSE_TAG_MAT_ICON} Back ",
+    "6212000354314520005": "Tasks ",
+    "4915431133669985304": "Profile",
+    "6749926724874923101": "View Profile",
+    "935790816200474922": "Sign Out"
+  }
+}

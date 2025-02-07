@@ -1,0 +1,10 @@
+.comment-input-container{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
+.comment-item{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}

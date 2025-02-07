@@ -1,0 +1,20 @@
+<mat-card appearance="outlined" class="contentContainer">
+    <mat-card-content class="registerFormContainer">
+
+
+        <form class="registerForm" [formGroup]="registerForm" (ngSubmit)="register()">
+            <h3 i18n>Register</h3>
+            <mat-form-field>
+                <mat-label i18n>Email</mat-label>
+                <input matInput placeholder="Email" name="email" formControlName="email">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label i18n>Password</mat-label>
+                <input matInput placeholder="Password" name="password" type="password" formControlName="password">
+            </mat-form-field>
+            <mat-error>{{alertMessage}}</mat-error>
+            <button mat-raised-button color="primary" type="submit">Register</button>
+            <mat-label i18n>Already have an account? <a routerLink="/login" href="/login">Login here</a></mat-label>
+        </form>
+    </mat-card-content>
+</mat-card> 

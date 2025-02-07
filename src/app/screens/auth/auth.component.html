@@ -1,0 +1,9 @@
+<div>
+    <app-navbar *ngIf="this.showNavbar"></app-navbar>
+        <div #content>
+            <ng-content></ng-content>
+
+        </div>
+    <app-footer *ngIf="this.showFooter"></app-footer>
+    
+</div>

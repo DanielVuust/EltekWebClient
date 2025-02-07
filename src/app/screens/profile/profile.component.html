@@ -1,0 +1,21 @@
+<app-auth>
+    <mat-card appearance="outlined" class="contentContainer">
+        <mat-card-content>
+            
+            <form class="profileForm" [formGroup]="profileForm" (ngSubmit)="save()">
+                <h3  i18n>Your profile</h3>
+                <mat-form-field>
+                    <mat-label  i18n>Email</mat-label>
+                    <input matInput placeholder="Email" name="email" formControlName="email">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label i18n>Username</mat-label>
+                    <input matInput placeholder="Username" name="username" formControlName="username">
+                </mat-form-field>
+                <mat-error>{{errorMessage}}</mat-error>
+                <div class="mat-success" color="success">{{successMessage}}</div>
+                <button mat-raised-button color="primary" type="submit" i18n>Save</button>
+            </form>
+        </mat-card-content>
+    </mat-card>
+</app-auth>

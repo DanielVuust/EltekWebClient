@@ -1,0 +1,79 @@
+        
+        
+<app-auth> 
+    <mat-card appearance="outlined" class="contentContainer">
+        <mat-card-header>
+            <mat-card-title i18n>Edit Task</mat-card-title>
+        </mat-card-header>
+        <mat-card-content class="taskContent">
+            <div *ngIf="(task$ | async)?.isLoading;" class="loadingContainer">
+                <mat-spinner></mat-spinner>
+            </div>
+            
+            <form *ngIf="!(task$ | async)?.isLoading;" class="taskForm" [formGroup]="form">
+
+                <mat-form-field>
+                    <mat-label>Status</mat-label>
+                    <mat-select name="status" formControlName="status">
+                      @for (status of this.statuses; track status) {
+                        <mat-option [value]="status">{{status.label}}</mat-option>
+                      }
+                    </mat-select>
+                  </mat-form-field>
+                <mat-form-field>
+                    <mat-label i18n>Title</mat-label>
+                    <input matInput placeholder="title" name="title" formControlName="title">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label i18n>Description</mat-label>
+                    <textarea matInput placeholder="description" name="description" formControlName="description"></textarea>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label i18n>Location</mat-label>
+                    <input matInput placeholder="location" name="location" formControlName="location">
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Customer</mat-label>
+                    <mat-select name="customer" formControlName="customer">
+                        <div *ngFor="let customer of (task$ | async)?.customers">
+                            <mat-option [value]="customer">{{customer.customerName}}</mat-option>
+                        </div>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>User</mat-label>
+                    <mat-select name="user" formControlName="user">
+                        <div *ngFor="let user of (task$ | async)?.users">
+                            <mat-option [value]="user">{{user.name}}</mat-option>
+                        </div>
+                    </mat-select>
+                  </mat-form-field>
+
+                
+                <!-- <app-file-drop></app-file-drop> -->
+                 <app-file-upload></app-file-upload>
+
+                 <app-comment-section></app-comment-section>
+
+                <mat-error>{{errorMessage}}</mat-error>
+                <div class="mat-success" color="success">{{(task$ | async)!.successMessage}}</div>
+            </form>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button (click)="save()" i18n>
+                <mat-icon>
+                    save
+                </mat-icon>
+                Save
+            </button>
+            <button mat-raised-button routerLink="/taskList" i18n>
+                <mat-icon>
+                    arrow_back
+                </mat-icon>
+                Back
+            </button>
+            
+        </mat-card-actions>
+    </mat-card>
+</app-auth>
+            

@@ -1,0 +1,40 @@
+<app-auth>
+    <mat-card appearance="outlined" class="contentContainer">
+        <mat-card-content class="taskContent">
+            
+
+            <div class="mat-elevation-z8 taskListContainer">
+                <div *ngFor="let status of statuses">
+                    
+                    <mat-accordion>
+                        <mat-expansion-panel hideToggle disabled>
+                            <mat-expansion-panel-header>
+                                <mat-panel-title> {{status.label}} </mat-panel-title>
+                                <mat-panel-description> </mat-panel-description>
+                            </mat-expansion-panel-header>
+                            <!-- <p>This is the primary content of the panel.</p> -->
+                        </mat-expansion-panel>
+                        <div *ngFor="let task of (taskList$ | async)?.tasks">
+                            <div *ngIf="task.status === status.value">
+                                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
+                                    <mat-expansion-panel-header>
+                                        <mat-panel-title> {{task.title}} </mat-panel-title>
+                                        <mat-panel-description>
+                                            {{getUserName(task.userId!)}}
+                                        </mat-panel-description>
+                                    </mat-expansion-panel-header>
+                                    <p>{{task.description}}</p>
+                                    <button mat-raised-button routerLink="/task/{{task.id}}" i18n>
+                                        <mat-icon>open_in_new</mat-icon>
+                                        open
+                                    </button>
+                                </mat-expansion-panel>
+                                
+                            </div>
+                        </div>
+                </mat-accordion>
+            </div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+</app-auth>

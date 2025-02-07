@@ -1,0 +1,12 @@
+
+<mat-toolbar color="primary" class="navbar">
+    <span class="logo">{{companyName | async}}</span>
+    <a mat-button routerLink="/" i18n>Tasks </a>
+    <a mat-button routerLink="/dashboard" i18n>Dashboard </a>
+    <div class="spacer"></div>
+    <button mat-button [matMenuTriggerFor]="profileMenu" class="navbarToolbarProfile" i18n>Profile</button>
+    <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item routerLink="/profile" i18n>View Profile</button>
+        <button mat-menu-item (click)="this.signOut()" i18n>Sign Out</button>
+    </mat-menu>
+</mat-toolbar>

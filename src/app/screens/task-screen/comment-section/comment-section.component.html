@@ -1,0 +1,28 @@
+<div>
+    <div mat-header i18n>Comments</div>
+    <mat-divider></mat-divider>
+    <div class="comment-input-container">
+        <mat-form-field>
+            <textarea matInput placeholder="Your comment" [(ngModel)]="newComment"></textarea>
+        </mat-form-field>
+        <button mat-raised-button class="comment-btn" color="primary" (click)="saveComment()" i18n>Comment</button>
+    </div>
+    <div *ngIf="(task$ | async)?.isCommentsLoading">
+        <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </div>
+    <div *ngIf="(!(task$ | async)?.isCommentsLoading)">
+
+        
+        
+        <mat-list>
+            <div *ngFor="let comment of (task$ | async)?.task?.comments | orderBy: 'createdUtc'" class="comment-preview">
+                    <mat-list-item class="comment-item">
+                        <div matListItemTitle>{{comment.comment}}</div>
+                        <div matListItemLine>{{comment.createdUtc | date:'yyyy-MM-dd HH:mm:ss' : '+0200'}}</div>
+                    <mat-icon matListItemIcon style="float: right;" (click)="deleteComment(comment.id!)">delete_forever</mat-icon>
+                </mat-list-item>
+                <mat-divider></mat-divider>
+            </div>
+        </mat-list>
+    </div>
+</div>

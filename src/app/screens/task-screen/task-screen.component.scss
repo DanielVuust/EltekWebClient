@@ -1,0 +1,16 @@
+.contentContainer{
+    display: flex;
+    width: fit-content;
+    margin: 20px auto;
+}
+.taskContent{
+    min-width: 300px;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+}
+.taskForm{
+    display: flex;
+    flex-direction: column;
+    margin: 20px;
+}
