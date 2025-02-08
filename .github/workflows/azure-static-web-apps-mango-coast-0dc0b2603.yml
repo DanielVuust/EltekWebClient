@@ -24,16 +24,16 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '20.x'
-      - name: Install dependencies and build project
-        run: | # angular is my folder in the repository root project where I store front-end code (if your angular project and its package.json are located in the root folder of the GitHub repository remove "cd angular"
-          cd angular
-          npm ci
-          npm run build
       - name: Ensure index.html exists in /browser
         run: | # You can put any content inside the index.html, but without this file Deployment to Azure won't succeed
           mkdir -p angular/dist/client/browser
           cd angular/dist/client/browser
           echo "<html><body><h1>Hello!</h1></body></html>" > index.html
+      - name: Install dependencies and build project
+        run: | # angular is my folder in the repository root project where I store front-end code (if your angular project and its package.json are located in the root folder of the GitHub repository remove "cd angular"
+          cd angular
+          npm ci
+          npm run build
       - name: Copy staticwebapp.config.json to /browser folder
         run: | # angular is my folder in the repository root project where I store front-end code
           cd angular
