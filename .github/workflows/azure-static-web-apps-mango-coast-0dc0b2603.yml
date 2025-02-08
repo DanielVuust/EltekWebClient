@@ -26,7 +26,6 @@ jobs:
           node-version: '20.x'
       - name: Install dependencies and build project
         run: |
-          cd ./angular
           npm ci
           npm run build
       - name: Ensure index.html exists in /browser
