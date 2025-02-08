@@ -37,7 +37,7 @@ jobs:
       - name: Copy staticwebapp.config.json to /browser folder
         run: |
           cd angular
-          echo "{ "routes": [ { "route": "*.{js,json,css,jpg,png,ico,webmanifest}" }, { "route": "/index.html", "rewrite": "/en/index.html" }, { "route": "/da/*", "rewrite": "/da/index.html" }, { "route": "/es/*", "rewrite": "/es/index.html" }, { "route": "/se/*", "rewrite": "/se/index.html" } ], "navigationFallback": { "rewrite": "/en/index.html" } }" > dist/client/browser/staticwebapp.config.json
+          echo "{ ‘routes’: [ { ‘route’: ‘*.{js,json,css,jpg,png,ico,webmanifest}’ }, { ‘route’: ‘/index.html’, ‘rewrite’: ‘/en/index.html’ }, { ‘route’: ‘/da/*’, ‘rewrite’: ‘/da/index.html’ }, { ‘route’: ‘/es/*’, ‘rewrite’: ‘/es/index.html’ }, { ‘route’: ‘/se/*’, ‘rewrite’: ‘/se/index.html’ } ], ‘navigationFallback’: { ‘rewrite’: ‘/en/index.html’ } }" > dist/client/browser/staticwebapp.config.json
       - name: Deploy
         id: deploy
         uses: Azure/static-web-apps-deploy@v1
