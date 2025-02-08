@@ -19,5 +19,8 @@
             "route": "/se/*",
             "rewrite": "/se/index.html"
         }
-    ]
+    ],
+    "navigationFallback": {
+    "rewrite": "/en/index.html"
+  }
 }
