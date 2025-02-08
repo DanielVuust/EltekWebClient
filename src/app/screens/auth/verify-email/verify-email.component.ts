@@ -54,11 +54,11 @@ export class VerifyEmailComponent {
     if (this.auth.currentUser) {
       await sendEmailVerification(this.auth.currentUser);
       console.log('Verification email sent!');
-      this.snackbarService.showSnackbar("Verification email sent!", 'Close');      
+      this.snackbarService.showSnackbar($localize`Verification email sent!`, $localize`Close`);      
       
     } else {
       console.error('No user is currently signed in.');
-      this.snackbarService.showSnackbar('No user is currently signed in.', 'Close');      
+      this.snackbarService.showSnackbar('No user is currently signed in.', $localize`Close`);      
     }
   }
 

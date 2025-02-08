@@ -40,6 +40,11 @@ export class LoginComponent {
   login() {
     if(!this.loginForm.valid){
       this.loginForm.markAllAsTouched();
+      if (!this.loginForm.controls['email'].valid) {
+        this.alertMessage = $localize`Please enter a valid email address`;
+        this.snackbarService.showSnackbar($localize`Please enter a valid email address`, $localize`Close`);
+        return;
+      }
       return;
     }
     this.signInWithEmailAndPasswordWrapper(this.auth, this.loginForm.value.email, this.loginForm.value.password)
@@ -48,14 +53,7 @@ export class LoginComponent {
       this.router.navigate(['']);
     })
     .catch((error) => {
-      console.log(error.code);
-
-      if(error.code === "auth/invalid-credential"){
-        this.alertMessage = "Invalid credentials";
-      }
-      else{
-        this.alertMessage = "An error occurred";
-      }
+      this.alertMessage = $localize`Invalid credentials`;
     });
   }
   public signInWithEmailAndPasswordWrapper(auth: Auth, email: string, password: string) {
@@ -63,16 +61,17 @@ export class LoginComponent {
   }
   resetPassword(){
     if (!this.loginForm.controls['email'].valid) {
-      this.snackbarService.showSnackbar("Please enter a valid email address", "Close");
+      this.alertMessage = $localize`Please enter a valid email address`;
+      this.snackbarService.showSnackbar($localize`Please enter a valid email address`, $localize`Close`);
       return;
     }
     sendPasswordResetEmail(this.auth, this.loginForm.value.email)
   .then(() => {
-    this.snackbarService.showSnackbar("Password reset email sent", "Close");
+    this.snackbarService.showSnackbar($localize`Password reset email sent`, $localize`Close`);
   })
   .catch((error) => {
     console.log(error);
-    this.snackbarService.showSnackbar("Error could not send reset email", "Close");
+    this.snackbarService.showSnackbar($localize`Error could not send reset email`, $localize`Close`);
   });
   }
 }

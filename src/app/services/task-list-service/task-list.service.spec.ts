@@ -46,7 +46,7 @@ describe('TaskListStateService', () => {
     spyOn(service.taskApiService, 'getTasks').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     expect(await service.loadTasks());
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error loading tasks", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error loading tasks`, $localize`Close`);
   });
 
   it('deleteTask should delete a task', async () => {
@@ -61,6 +61,6 @@ describe('TaskListStateService', () => {
     spyOn(service.snackbarService, 'showSnackbar');
     spyOn(service, 'loadTasks').and.returnValue(Promise.resolve());
     expect(await service.removeTask(mockTask as TaskModel));
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error removing task", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error removing task`, $localize`Close`);
   });  
 });

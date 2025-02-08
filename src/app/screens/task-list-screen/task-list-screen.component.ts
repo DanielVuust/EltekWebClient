@@ -40,7 +40,7 @@ export class TaskListScreenComponent {
   readonly dialog = inject(MatDialog);
   taskList$: Observable<TaskListState> ;
 
-    constructor(private taskService: TaskListService, private store: Store<{ taskList: TaskListState }>) {
+    constructor(private taskListService: TaskListService, private store: Store<{ taskList: TaskListState }>) {
       this.taskList$ = store.select('taskList');
       this.taskList$.subscribe(taskList => {
         if(taskList.tasks) {
@@ -54,7 +54,8 @@ export class TaskListScreenComponent {
     }
     ngAfterViewInit() {
       this.applyPaginatorAndSort();
-      this.taskService.loadTasks();
+      this.taskListService.loadTasks();
+      this.taskListService.loadUsers();
     }
     applyFilter(event: Event) {
       this.lastFilterEvent = event;
@@ -70,7 +71,7 @@ export class TaskListScreenComponent {
 
       dialogRef.afterClosed().subscribe(result => {
         if(result) {
-          this.taskService.removeTask(task);
+          this.taskListService.removeTask(task);
           this.applyPaginatorAndSort();
         }
       });

@@ -4,7 +4,7 @@
             
 
             <div class="mat-elevation-z8 taskListContainer">
-                <div *ngFor="let status of statuses">
+                <div *ngFor="let status of statuses" class="taskList">
                     
                     <mat-accordion>
                         <mat-expansion-panel hideToggle disabled>
@@ -12,7 +12,6 @@
                                 <mat-panel-title> {{status.label}} </mat-panel-title>
                                 <mat-panel-description> </mat-panel-description>
                             </mat-expansion-panel-header>
-                            <!-- <p>This is the primary content of the panel.</p> -->
                         </mat-expansion-panel>
                         <div *ngFor="let task of (taskList$ | async)?.tasks">
                             <div *ngIf="task.status === status.value">

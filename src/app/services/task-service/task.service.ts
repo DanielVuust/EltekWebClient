@@ -21,7 +21,7 @@ export class TaskService {
   async validateTask(): Promise<boolean> {
 
     if(this.taskState?.task?.id === "new" || !this.taskState?.task?.id) {
-      this.snackbarService.showSnackbar("Please save the task first", "Close",);
+      this.snackbarService.showSnackbar($localize`Please save the task first`, $localize`Close`,);
       return false;
     }
     return true;
@@ -43,7 +43,7 @@ export class TaskService {
 
       } catch(error){
         console.error("Error loading task", error);
-        this.snackbarService.showSnackbar("Error loading task", "Close");
+        this.snackbarService.showSnackbar($localize`Error loading task`, $localize`Close`);
       } finally{
         this.store.dispatch({ type: '[TaskAction] setIsLoading', isLoading: false });
       }
@@ -68,7 +68,7 @@ export class TaskService {
 
       } catch(error){
         console.error("Error saving task", error);
-        this.snackbarService.showSnackbar("Error saving task", "Close");
+        this.snackbarService.showSnackbar($localize`Error saving task`, $localize`Close`);
       }
       if(this.taskState?.task?.id === "new") {
         await this.loadTask(newTaskId);
@@ -88,11 +88,11 @@ export class TaskService {
           console.log(task);
           this.store.dispatch({ type: '[TaskAction] setTaskPhotos', photos: task.photos });
         } else {
-          this.snackbarService.showSnackbar("Task not found", "Close");
+          this.snackbarService.showSnackbar($localize`Task not found`, $localize`Close`);
         }
       } catch (error) {
         console.log(error);
-        this.snackbarService.showSnackbar("Error", "Close");
+        this.snackbarService.showSnackbar($localize`Error`, $localize`Close`);
       } finally {
         this.store.dispatch({ type: '[TaskAction] setIsPhotosLoading', isLoading: false });
       }
@@ -116,12 +116,12 @@ export class TaskService {
             resolve(result);
           } catch (error: any) {
             console.error("Error adding photo", error);
-            this.snackbarService.showSnackbar("Error adding photo", "Close");
+            this.snackbarService.showSnackbar($localize`Error adding photo`, $localize`Close`);
             reject(error);
           }
           };
           fileReader.onerror = (error) => {
-          this.snackbarService.showSnackbar("Error reading file", "Close");
+          this.snackbarService.showSnackbar($localize`Error reading file`, $localize`Close`);
           console.log("Error reading file :", error);
           reject(error);
           };
@@ -150,11 +150,11 @@ export class TaskService {
         if (task) {
           this.store.dispatch({ type: '[TaskAction] setComments', comments: task.comments });
         } else {
-          this.snackbarService.showSnackbar("Task not found", "Close");
+          this.snackbarService.showSnackbar($localize`Task not found`, $localize`Close`);
         }
       } catch (error) {
         console.log(error);
-        this.snackbarService.showSnackbar("Error loading comments", "Close");
+        this.snackbarService.showSnackbar($localize`Error loading comments`, $localize`Close`);
       } finally {
         this.store.dispatch({ type: '[TaskAction] setIsCommentsLoading', isLoading: false });
       }
@@ -170,7 +170,7 @@ export class TaskService {
         const commentId = await this.taskApiService.createComment(this.taskState?.task?.id!, commentText);
       } catch (error: any) {
         console.error("Error adding comment", error);
-        this.snackbarService.showSnackbar("Error adding comment", "Close");
+        this.snackbarService.showSnackbar($localize`Error adding comment`, $localize`Close`);
         return;
       }
       this.loadTaskCommets();
@@ -185,7 +185,7 @@ export class TaskService {
         await this.taskApiService.deleteComment(commentId);
       } catch (error: any) {
         console.error("Error removing comment", error);
-        this.snackbarService.showSnackbar("Error deleting comment", "Close");
+        this.snackbarService.showSnackbar($localize`Error deleting comment`, $localize`Close`);
         return;
       }
       this.loadTaskCommets();
@@ -199,7 +199,7 @@ export class TaskService {
   
       } catch(error){
         console.error("Error loading tasks", error);
-        this.snackbarService.showSnackbar("Error loading customers", "Close");
+        this.snackbarService.showSnackbar($localize`Error loading customers`, $localize`Close`);
       } finally{
         this.store.dispatch({ type: '[TaskAction] setIsCustomersLoading', isLoading: false });
       }
@@ -214,7 +214,7 @@ export class TaskService {
   
       } catch(error){
         console.error("Error loading users", error);
-        this.snackbarService.showSnackbar("Error loading users", "Close");
+        this.snackbarService.showSnackbar($localize`Error loading users`, $localize`Close`);
       } finally{
         this.store.dispatch({ type: '[TaskAction] setIsUserLoading', isLoading: false });
       }

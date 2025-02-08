@@ -47,7 +47,7 @@ export class RegisterComponent {
       this.router.navigate(['']);
     })
     .catch((error) => {
-      if(error.code === "auth/email-already-in-use"){
+      if(error.code === "auth/email-already-in-use" || error.code === "auth/network-request-failed"){
         this.alertMessage = "Email already in use";
       }
       else if(error.code === "auth/invalid-email"){

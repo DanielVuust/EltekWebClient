@@ -44,7 +44,7 @@ export const taskReducer = createReducer(
   })),
   on(setCustomers, (state, { customers }) => ({
     ...state,
-    customers: customers
+    customers: customers 
   })),
   on(setIsCommentsLoading, (state, { isLoading }) => ({
     ...state,

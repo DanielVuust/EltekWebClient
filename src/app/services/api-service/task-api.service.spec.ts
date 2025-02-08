@@ -77,6 +77,6 @@ describe('TaskApiService', () => {
   //   spyOn(service.apiService, 'post').and.throwError('Error');
   //   spyOn(service.snackbarService, 'showSnackbar');
   //   expect(await service.createEmptyTask());
-  //   expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error creating task", "Close");
+  //   expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error creating task`, $localize`Close`);
   // });
 });

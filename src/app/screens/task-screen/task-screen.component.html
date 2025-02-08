@@ -33,7 +33,7 @@
                     <input matInput placeholder="location" name="location" formControlName="location">
                 </mat-form-field>
                 <mat-form-field>
-                    <mat-label>Customer</mat-label>
+                    <mat-label i18n>Customer</mat-label>
                     <mat-select name="customer" formControlName="customer">
                         <div *ngFor="let customer of (task$ | async)?.customers">
                             <mat-option [value]="customer">{{customer.customerName}}</mat-option>
@@ -41,7 +41,7 @@
                     </mat-select>
                   </mat-form-field>
                   <mat-form-field>
-                    <mat-label>User</mat-label>
+                    <mat-label i18n>User</mat-label>
                     <mat-select name="user" formControlName="user">
                         <div *ngFor="let user of (task$ | async)?.users">
                             <mat-option [value]="user">{{user.name}}</mat-option>

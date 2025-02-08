@@ -25,6 +25,7 @@ export class SignalRService {
 
   public waitForRequestId = (requestId: string) => {
     return new Promise<string>((resolve, reject) => {
+      console.log(`Waiting for request ID: ${requestId}`);
       this.hubConnection!.on('NotifyTaskRequestId', (id: string, taskId: string) => {
         console.log(`Request ID: ${id}, Task ID: ${taskId}`);
         if (id === requestId) {

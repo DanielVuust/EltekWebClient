@@ -30,7 +30,7 @@ export class TaskApiService {
           resolve(taskId);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar("Error creating task", "Close");
+          this.snackbarService.showSnackbar($localize`Error creating task`, $localize`Close`);
           console.error("Error creating task", error);
           resolve(error);
         }
@@ -53,7 +53,7 @@ export class TaskApiService {
           resolve(taskId);
         },
         error: (error) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.error("Error creating task", error);
           resolve(error);
         }
@@ -68,7 +68,7 @@ export class TaskApiService {
           resolve(task);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.error("Error getting task", error);
           resolve(error);
         }
@@ -88,7 +88,7 @@ export class TaskApiService {
           resolve(id);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.error("Error creating comment", error);
           reject(error);
         }
@@ -108,7 +108,7 @@ export class TaskApiService {
           resolve(id);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.log("Error adding photo", error);
           reject(error);
         }
@@ -128,7 +128,7 @@ export class TaskApiService {
           resolve(id);
         },
         error: (error) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.log("Error adding photo", error);
           reject(error);
         }
@@ -143,7 +143,7 @@ export class TaskApiService {
           resolve(customers);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.log("Error getting customers", error);
           reject(error);
         }
@@ -157,7 +157,7 @@ export class TaskApiService {
           resolve(users);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.log("Error getting users", error);
           reject(error);
         }
@@ -172,7 +172,7 @@ export class TaskApiService {
           resolve(tasks);
         },
         error: (error: any) => {
-          this.snackbarService.showSnackbar(error.title, "Close");
+          this.snackbarService.showSnackbar(error.title, $localize`Close`);
           console.error("Error getting tasks", error);
           resolve(error);
         }
@@ -189,7 +189,7 @@ deleteTask(taskId: String): Promise<any>{
         resolve(id);
       },
       error: (error: any) => {
-        this.snackbarService.showSnackbar(error.title, "Close");
+        this.snackbarService.showSnackbar(error.title, $localize`Close`);
         console.error("Error deleting task", error);
         reject(error);
       }});

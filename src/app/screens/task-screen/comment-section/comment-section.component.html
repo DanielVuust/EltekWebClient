@@ -3,7 +3,7 @@
     <mat-divider></mat-divider>
     <div class="comment-input-container">
         <mat-form-field>
-            <textarea matInput placeholder="Your comment" [(ngModel)]="newComment"></textarea>
+            <textarea matInput placeholder="Your comment" [(ngModel)]="newComment" i18n></textarea>
         </mat-form-field>
         <button mat-raised-button class="comment-btn" color="primary" (click)="saveComment()" i18n>Comment</button>
     </div>
@@ -17,7 +17,7 @@
         <mat-list>
             <div *ngFor="let comment of (task$ | async)?.task?.comments | orderBy: 'createdUtc'" class="comment-preview">
                     <mat-list-item class="comment-item">
-                        <div matListItemTitle>{{comment.comment}}</div>
+                        <div matListItemTitle style="white-space: normal;">{{comment.comment}}</div>
                         <div matListItemLine>{{comment.createdUtc | date:'yyyy-MM-dd HH:mm:ss' : '+0200'}}</div>
                     <mat-icon matListItemIcon style="float: right;" (click)="deleteComment(comment.id!)">delete_forever</mat-icon>
                 </mat-list-item>

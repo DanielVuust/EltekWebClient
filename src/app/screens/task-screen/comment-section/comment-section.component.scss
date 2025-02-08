@@ -4,7 +4,11 @@
     margin: 20px;
 }
 .comment-item{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
+    height: fit-content !important;
+}
+.comment-item > *{
+    height: fit-content !important;
+}
+.comment-preview{
+    height: fit-content !important;
 }

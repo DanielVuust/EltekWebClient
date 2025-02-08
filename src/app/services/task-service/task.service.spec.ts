@@ -69,7 +69,7 @@ describe('TaskService', () => {
     spyOn(service, 'validateTask').and.returnValue(Promise.resolve(true));
     spyOn(service.snackbarService, 'showSnackbar');
     expect(await service.loadTask("id"));
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error loading task", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error loading task`, $localize`Close`);
   });
   it('loadTask should repect new tasks', async () => {
     spyOn(service.store, 'dispatch');
@@ -96,7 +96,7 @@ describe('TaskService', () => {
     spyOn(service.snackbarService, 'showSnackbar');
     spyOn(service, 'loadTask').and.returnValue(Promise.resolve());
     expect(await service.saveTask("title", "description", "location", "status", "customerId", "user"));
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error saving task", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error saving task`, $localize`Close`);
   });
   it('saveTask should repect new tasks', async () => {
     const task = new TaskModel();
@@ -131,7 +131,7 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'getTask').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     expect(await service.loadTaskPhotos());
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error`, $localize`Close`);
   });
   it('LoadTaskPhotos should show snackbar if task is null', async () => {
     
@@ -141,7 +141,7 @@ describe('TaskService', () => {
     
     await service.loadTaskPhotos();
     
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Task not found", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Task not found`, $localize`Close`);
   });
   // #endregion loadTaskPhotos
 
@@ -167,7 +167,7 @@ describe('TaskService', () => {
     spyOn(service.snackbarService, 'showSnackbar');
     spyOn(service, 'loadTaskPhotos').and.returnValue(Promise.resolve());
     await service.addTaskPhotos([new File([], "test")]).catch(() => {});
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error adding photo", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error adding photo`, $localize`Close`);
   });
   // todo fix this test
   // it('addTaskPhotos should show snackbar on error reading file', async () => {
@@ -177,7 +177,7 @@ describe('TaskService', () => {
   //   spyOn(service.snackbarService, 'showSnackbar');
   //   spyOn(service, 'loadTaskPhotos').and.returnValue(Promise.resolve());
   //   await service.addTaskPhotos([new File([], "test")]).catch(() => {});
-  //   expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error reading file", "Close");
+  //   expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error reading file`, $localize`Close`);
   // });
 
   // #endregion addTaskPhotos
@@ -217,7 +217,7 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'getTask').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     expect(await service.loadTaskCommets());
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error loading comments", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error loading comments`, $localize`Close`);
   });
   it('loadTaskCommets should show snackbar if task is null', async () => {
     
@@ -227,7 +227,7 @@ describe('TaskService', () => {
     
     await service.loadTaskCommets();
     
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Task not found", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Task not found`, $localize`Close`);
   });
   // #endregion loadTaskCommets
 
@@ -253,7 +253,7 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'createComment').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     await service.addTaskComment("comment");
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error adding comment", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error adding comment`, $localize`Close`);
   });
   // #endregion addTaskComment
 
@@ -279,7 +279,7 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'deleteComment').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     await service.deleteTaskComment("comment");
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error deleting comment", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error deleting comment`, $localize`Close`);
   });
   // #endregion deleteTaskComment
 
@@ -293,7 +293,7 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'getCustomers').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     await service.loadCustomers();
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error loading customers", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error loading customers`, $localize`Close`);
   });
   // #endregion loadCustomers
 
@@ -308,6 +308,6 @@ describe('TaskService', () => {
     spyOn(service.taskApiService, 'getUsers').and.throwError('Error');
     spyOn(service.snackbarService, 'showSnackbar');
     await service.loadUsers();
-    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith("Error loading users", "Close");
+    expect(service.snackbarService.showSnackbar).toHaveBeenCalledWith($localize`Error loading users`, $localize`Close`);
   });
 });

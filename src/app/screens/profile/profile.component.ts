@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 import { AuthComponent } from "../auth/auth.component";
 import { Auth, updateProfile } from '@angular/fire/auth';
 import { MatCardModule } from '@angular/material/card';
-
 @Component({
   selector: 'app-profile',
   standalone: true,
@@ -47,9 +46,8 @@ export class ProfileComponent {
     }
     await this.updateProfileWrapper(this.auth.currentUser!, {displayName: this.profileForm.value.username})
     .then(async () => {
-      // await this.service.updateUserInDb();
-      this.successMessage = "Profile updated";
-      console.log("Profile updated");
+      
+      this.successMessage = $localize`Profile updated`;
     })
   }
   async updateProfileWrapper(user: any, profile: any) {

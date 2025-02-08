@@ -26,7 +26,7 @@ export class TaskListService {
 
     } catch(error){
       console.error("Error loading tasks", error);
-      this.snackbarService.showSnackbar("Error loading tasks", "Close");
+      this.snackbarService.showSnackbar($localize`Error loading tasks`, $localize`Close`);
     } finally{
       this.store.dispatch({ type: '[TaskListAction] setIsLoading', isLoading: false });
     }
@@ -39,7 +39,7 @@ export class TaskListService {
       await this.taskApiService.deleteTask(task.id!);
     } catch(error){
       console.error("Error removing task", error);
-      this.snackbarService.showSnackbar("Error removing task", "Close");
+      this.snackbarService.showSnackbar($localize`Error removing task`, $localize`Close`);
     } finally{
       this.store.dispatch({ type: '[TaskListAction] setIsLoading', isLoading: false });
     }
@@ -56,7 +56,7 @@ export class TaskListService {
 
     } catch(error){
       console.error("Error loading users", error);
-      this.snackbarService.showSnackbar("Error loading users", "Close");
+      this.snackbarService.showSnackbar($localize`Error loading users`, $localize`Close`);
     } finally{
       this.store.dispatch({ type: '[TaskListAction] setIsUserLoading', isLoading: false });
     }
