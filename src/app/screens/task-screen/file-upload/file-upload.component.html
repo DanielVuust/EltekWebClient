@@ -14,8 +14,6 @@
             
         <div class="file-preview">
             <div *ngFor="let file of (task$ | async)?.task?.photos" class="file-preview-item">
-                
-                <!-- <mat-icon class="cancel-upload" (click)="removeFile(file)">delete_forever</mat-icon> -->
                 <img src="{{file.photoData}}" alt="Photo {{file.id}}" class="image"/>
             </div>
             

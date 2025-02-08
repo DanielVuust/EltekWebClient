@@ -15,8 +15,8 @@
                         </mat-expansion-panel>
                         <div *ngFor="let task of (taskList$ | async)?.tasks">
                             <div *ngIf="task.status === status.value">
-                                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)">
-                                    <mat-expansion-panel-header>
+                                <mat-expansion-panel (opened)="panelOpenState.set(true)" (closed)="panelOpenState.set(false)" style="margin:10px">
+                                    <mat-expansion-panel-header class="taskPanel">
                                         <mat-panel-title> {{task.title}} </mat-panel-title>
                                         <mat-panel-description>
                                             {{getUserName(task.userId!)}}

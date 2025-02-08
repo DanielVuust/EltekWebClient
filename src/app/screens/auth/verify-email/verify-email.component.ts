@@ -43,7 +43,6 @@ export class VerifyEmailComponent {
       if (this.auth.currentUser) {
         await this.auth.currentUser.reload();
         if (this.auth.currentUser.emailVerified) {
-          console.log('Email has been verified!');
           clearInterval(this.verificationCheckInterval);
           this.router.navigate(['/']);
         }
@@ -53,11 +52,9 @@ export class VerifyEmailComponent {
   async sendVerificationEmail() {
     if (this.auth.currentUser) {
       await sendEmailVerification(this.auth.currentUser);
-      console.log('Verification email sent!');
       this.snackbarService.showSnackbar($localize`Verification email sent!`, $localize`Close`);      
       
     } else {
-      console.error('No user is currently signed in.');
       this.snackbarService.showSnackbar('No user is currently signed in.', $localize`Close`);      
     }
   }

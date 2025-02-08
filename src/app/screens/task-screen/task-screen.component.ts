@@ -95,12 +95,10 @@ export class TaskScreenComponent {
   successMessage: String | undefined;
   save(){
     if(!this.form.valid){
-      console.log(this.form);
       this.errorMessage = "Please correct the errors in the form.";
       this.form.markAllAsTouched();
     }
     else{
-      console.log(this.form.value);
       this.taskService.saveTask(this.form?.value?.title, this.form?.value?.description, this.form?.value?.location, this.form?.value?.status?.value, this.form?.value?.customer?.id, this.form.value?.user?.userId);
       this.successMessage = "Task saved successfully";
       this.errorMessage = undefined;

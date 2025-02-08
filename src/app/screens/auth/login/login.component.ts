@@ -70,7 +70,6 @@ export class LoginComponent {
     this.snackbarService.showSnackbar($localize`Password reset email sent`, $localize`Close`);
   })
   .catch((error) => {
-    console.log(error);
     this.snackbarService.showSnackbar($localize`Error could not send reset email`, $localize`Close`);
   });
   }

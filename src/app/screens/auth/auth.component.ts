@@ -23,14 +23,10 @@ export class AuthComponent {
     this.auth.onAuthStateChanged((user) => {
       if (!user) {
         this.router.navigate(['/login']);
-        console.log("User is signed out");
       } else if (user.emailVerified === false) {
         this.router.navigate(['/verify-email']);
-        console.log("User is not verified");
       } 
       else {
-        console.log("User is signed in");
-        console.log(user);
       }
     });
   }

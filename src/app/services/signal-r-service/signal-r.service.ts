@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import * as signalR from '@microsoft/signalr';
 import { environment } from '../../config/appsettings';
+import { SnackbarService } from '../snackbar-service/snackbar.service';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ import { environment } from '../../config/appsettings';
 export class SignalRService {
   private hubConnection: signalR.HubConnection | undefined;
 
-  constructor() {}
+  constructor(private snackbarService: SnackbarService) {}
 
   public startConnection = () => {
     this.hubConnection = new signalR.HubConnectionBuilder()
@@ -20,16 +21,17 @@ export class SignalRService {
       .then(() =>{
         console.log('SignalR Connection started')
       })
-      .catch(err => console.log('Error establishing SignalR connection: ' + err));
+      .catch(err => {
+        this.snackbarService.showSnackbar($localize`Error establishing SignalR connection, please try again later`, 'Close');
+        console.log('Error establishing SignalR connection: ' + err)
+      }
+      );
   }
 
   public waitForRequestId = (requestId: string) => {
     return new Promise<string>((resolve, reject) => {
-      console.log(`Waiting for request ID: ${requestId}`);
       this.hubConnection!.on('NotifyTaskRequestId', (id: string, taskId: string) => {
-        console.log(`Request ID: ${id}, Task ID: ${taskId}`);
         if (id === requestId) {
-          console.log(`Request ID: ${id}, is done`);
           resolve(taskId);
         }
       });

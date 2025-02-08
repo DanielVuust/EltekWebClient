@@ -21,6 +21,7 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { Auth } from '@angular/fire/auth';
 
 @Component({
   selector: 'app-task-list-screen',
@@ -40,7 +41,7 @@ export class TaskListScreenComponent {
   readonly dialog = inject(MatDialog);
   taskList$: Observable<TaskListState> ;
 
-    constructor(private taskListService: TaskListService, private store: Store<{ taskList: TaskListState }>) {
+    constructor(private taskListService: TaskListService, private store: Store<{ taskList: TaskListState }>,public auth: Auth) {
       this.taskList$ = store.select('taskList');
       this.taskList$.subscribe(taskList => {
         if(taskList.tasks) {
@@ -54,8 +55,10 @@ export class TaskListScreenComponent {
     }
     ngAfterViewInit() {
       this.applyPaginatorAndSort();
-      this.taskListService.loadTasks();
-      this.taskListService.loadUsers();
+      if(this.auth.currentUser){
+        this.taskListService.loadTasks();
+        this.taskListService.loadUsers();
+      }
     }
     applyFilter(event: Event) {
       this.lastFilterEvent = event;

@@ -20,7 +20,6 @@ export class ApiService {
       });
       options = { headers: headers };
     }
-    console.log(environment.backendUrl + url);
     return await this.http.get(environment.backendUrl + url, options);
   } 
 
@@ -73,8 +72,6 @@ export class ApiService {
 
     if (user) {
       const token = await user.getIdToken();
-      console.log(token);
-      console.log(user);
       return token;
     }
 
@@ -87,8 +84,6 @@ export class ApiService {
 
     if (newUser) {
       const token = await newUser.getIdToken();
-      console.log(token);
-      console.log(newUser);
       return token;
     }
 

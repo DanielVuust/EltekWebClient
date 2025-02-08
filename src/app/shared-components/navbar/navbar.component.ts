@@ -28,7 +28,6 @@ export class NavbarComponent {
   }
   signOut() {
     this.auth.signOut().then(() => {
-      console.log("User signed out");
     });
   }
 }

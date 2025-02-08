@@ -109,7 +109,6 @@ export class TaskApiService {
         },
         error: (error: any) => {
           this.snackbarService.showSnackbar(error.title, $localize`Close`);
-          console.log("Error adding photo", error);
           reject(error);
         }
       });
@@ -129,7 +128,6 @@ export class TaskApiService {
         },
         error: (error) => {
           this.snackbarService.showSnackbar(error.title, $localize`Close`);
-          console.log("Error adding photo", error);
           reject(error);
         }
       });
@@ -144,7 +142,6 @@ export class TaskApiService {
         },
         error: (error: any) => {
           this.snackbarService.showSnackbar(error.title, $localize`Close`);
-          console.log("Error getting customers", error);
           reject(error);
         }
       });
@@ -158,7 +155,6 @@ export class TaskApiService {
         },
         error: (error: any) => {
           this.snackbarService.showSnackbar(error.title, $localize`Close`);
-          console.log("Error getting users", error);
           reject(error);
         }
       });

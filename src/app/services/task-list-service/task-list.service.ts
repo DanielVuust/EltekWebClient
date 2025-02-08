@@ -51,7 +51,6 @@ export class TaskListService {
 
     try{
       let users = await this.taskApiService.getUsers();
-      console.log(users)
       this.store.dispatch({ type: '[TaskListAction] setUsers', users: users });
 
     } catch(error){

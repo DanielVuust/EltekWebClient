@@ -38,7 +38,6 @@ export class DashboardScreenComponent {
       this.taskList$ = store.select('taskList');
       this.taskList$.subscribe((taskList) => {
         this.users = taskList.users;
-        console.log(this.users);
       });
     }
     ngOnInit() {
