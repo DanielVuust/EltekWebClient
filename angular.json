@@ -5,6 +5,20 @@
   "projects": {
     "EltekWebClient": {
       "projectType": "application",
+      "i18n": { 
+        "sourceLocale": "en", 
+        "locales": { 
+          "da": {
+            "translation": "src/locale/messages.da.json" 
+          },
+          "se": {
+            "translation": "src/locale/messages.se.json" 
+          },
+          "es": {
+            "translation": "src/locale/messages.es.json" 
+          }
+        }
+        },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -52,12 +66,24 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "localize": [
+                                "en",
+                                "da",
+                                "se",
+                                "es"
+                            ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "localize": [
+                                "en",
+                                "da",
+                                "se",
+                                "es"
+                            ]
             }
           },
           "defaultConfiguration": "production"
