@@ -36,11 +36,7 @@ jobs:
           npm run build
       - name: Copy staticwebapp.config.json to /browser folder
         run: | # angular is my folder in the repository root project where I store front-end code
-          cd angular/dist/client/browser
-          echo "Copying staticwebapp.config.json to /browser folder"
-          echo index.html
-          echo en/staticwebapp.config.json
-          cp en/staticwebapp.config.json dist/client/browser
+          cp staticwebapp.config.json dist/client/browser
       - name: Deploy
         id: deploy
         uses: Azure/static-web-apps-deploy@v1
