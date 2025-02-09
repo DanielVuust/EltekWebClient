@@ -4,6 +4,10 @@
       "route": "*.{js,json,css,jpg,png,ico,webmanifest}"
     },
     {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    },
+    {
       "route": "index.html",
       "rewrite": "/en/index.html"
     },
