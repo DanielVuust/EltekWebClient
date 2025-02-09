@@ -1,11 +1,5 @@
 {
   "navigationFallback": {
     "rewrite": "/en/index.html"
-  },
-  "routes": [
-    {
-      "route": "index.html",
-      "redirect": "/en/index.html"
-    }
-  ]
+  }
 }
