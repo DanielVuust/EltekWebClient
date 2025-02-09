@@ -3,6 +3,8 @@
     {
       "route": "*.{js,json,css,jpg,png,ico,webmanifest}"
     },
+    { "route": "/.*", "rewrite": "/en/index.html" },
+
     {
       "route": "index.html",
       "rewrite": "/en/index.html"
