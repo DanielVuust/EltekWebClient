@@ -29,8 +29,8 @@ jobs:
           mkdir -p angular/dist/client/browser
           cd angular/dist/client/browser
           echo "<html><body><h1>Hello!</h1></body></html>" > index.html
-          - name: Install dependencies and build project
-      - run: |
+      - name: Install dependencies and build project
+        run: |
           cd angular
           npm ci
           npm run build
