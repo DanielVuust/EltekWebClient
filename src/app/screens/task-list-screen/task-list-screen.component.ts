@@ -55,10 +55,12 @@ export class TaskListScreenComponent {
     }
     ngAfterViewInit() {
       this.applyPaginatorAndSort();
-      if(this.auth.currentUser){
-        this.taskListService.loadTasks();
-        this.taskListService.loadUsers();
-      }
+      this.auth.onAuthStateChanged(user => {
+        if (user) {
+          this.taskListService.loadTasks();
+          this.taskListService.loadUsers();
+        }
+      });
     }
     applyFilter(event: Event) {
       this.lastFilterEvent = event;
