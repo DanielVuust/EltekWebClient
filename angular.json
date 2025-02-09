@@ -5,20 +5,6 @@
   "projects": {
     "EltekWebClient": {
       "projectType": "application",
-      "i18n": { 
-        "sourceLocale": "en", 
-        "locales": { 
-          "da": {
-            "translation": "src/locale/messages.da.json" 
-          },
-          "se": {
-            "translation": "src/locale/messages.se.json" 
-          },
-          "es": {
-            "translation": "src/locale/messages.es.json" 
-          }
-        }
-        },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -44,8 +30,7 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              "src/staticwebapp.config.json"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
@@ -67,24 +52,12 @@
                   "maximumError": "8kB"
                 }
               ],
-              "outputHashing": "all",
-              "localize": [
-                                "en",
-                                "da",
-                                "se",
-                                "es"
-                            ]
+              "outputHashing": "all"
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "localize": [
-                                "en",
-                                "da",
-                                "se",
-                                "es"
-                            ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -118,8 +91,7 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              "src/staticwebapp.config.json"
+              }
             ],
             "styles": [
               "@angular/material/prebuilt-themes/azure-blue.css",
